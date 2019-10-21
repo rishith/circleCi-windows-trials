@@ -15,6 +15,6 @@ jobs:
           name: Create a text file and Zip it
           command: |
             mkdir \app ; cd \app ;
-            runas echo.>test.txt; Compress-Archive test.txt ${CIRCLE_BUILD_NUM}-output.zip
+            Compress-Archive ${CIRCLE_BUILD_NUM}-output.zip
       - store_artifacts:
           path: .\app\${CIRCLE_BUILD_NUM}\${CIRCLE_BUILD_NUM}-output.zip
