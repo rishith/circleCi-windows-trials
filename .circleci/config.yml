@@ -5,7 +5,7 @@ orbs:
 
 jobs:
   build:
-    executor: win/vs2012
+    executor: win/vs2019
     shell: cmd.exe
     steps:
       - checkout
