@@ -12,7 +12,7 @@ jobs:
           name: Echo the env
           command: echo "This is inside the cmd"
       - run:
-          name: Create a text file and Zip it
-          command: dotnet new console -o myApp; cd myApp; dotnet run
+          name: Try "Hello World!!" app
+          command: dotnet new console -o myApp; cd myApp; dotnet run; dotnet publish -c Release -o out
       # - store_artifacts:
       #     path: .\app\${CIRCLE_BUILD_NUM}\${CIRCLE_BUILD_NUM}-output.zip
