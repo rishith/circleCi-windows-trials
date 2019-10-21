@@ -5,7 +5,17 @@ orbs:
 
 jobs:
   build:
-    executor: win/vs2019
+    executor: win/vs2012
+    shell: cmd.exe
     steps:
       - checkout
-      - run: Write-Host 'Hello, Windows'
+      - run:
+          name: Echo the env
+          command: echo "This is inside the cmd"
+      - run:
+          name: Create a text file and Zip it
+          command: |
+            mkdir \app && cd app &&
+            notepad test.txt && Compress-Archive test.txt ${CIRCLE_BUILD_NUM}-output.zip
+      - store_artifacts:
+          path: .\app\${CIRCLE_BUILD_NUM}\${CIRCLE_BUILD_NUM}-output.zip
