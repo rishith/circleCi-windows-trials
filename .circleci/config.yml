@@ -13,8 +13,6 @@ jobs:
           command: echo "This is inside the cmd"
       - run:
           name: Create a text file and Zip it
-          command: |
-            mkdir \app ; cd \app ;
-            Compress-Archive input.txt output.zip
-      - store_artifacts:
-          path: .\app\${CIRCLE_BUILD_NUM}\${CIRCLE_BUILD_NUM}-output.zip
+          command: dotnet new console -o myApp; cd myApp; dotnet run
+      # - store_artifacts:
+      #     path: .\app\${CIRCLE_BUILD_NUM}\${CIRCLE_BUILD_NUM}-output.zip
